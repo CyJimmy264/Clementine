@@ -267,7 +267,7 @@ QSqlDatabase Database::Connect() {
   {
 
 #ifdef SQLITE_DBCONFIG_ENABLE_FTS3_TOKENIZER
-    // In case sqlite>=3.12 is compiled without -DSQLITE_ENABLE_FTS3_TOKENIZER (generally a good idea 
+    // In case sqlite>=3.12 is compiled without -DSQLITE_ENABLE_FTS3_TOKENIZER (generally a good idea
     // due to security reasons) the fts3 support should be enabled explicitly.
     // see https://github.com/clementine-player/Clementine/issues/5297
     //
