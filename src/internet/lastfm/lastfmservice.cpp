@@ -343,8 +343,15 @@ lastfm::Track LastFMService::TrackFromSong(const Song& song) const {
       song.album() == last_track_.album())
     return last_track_;
 
+  Song corrected_song = song;
+
+  QRegExp rx("(.*)\\s+\\*\\s+anima\\.sknt\\.ru");
+  if (rx.indexIn(song.title()) != -1) {
+    corrected_song.set_title(rx.cap(1));
+  }
+
   lastfm::Track ret;
-  song.ToLastFM(&ret, PreferAlbumArtist());
+  corrected_song.ToLastFM(&ret, PreferAlbumArtist());
   return ret;
 }
 
