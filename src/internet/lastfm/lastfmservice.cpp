@@ -345,7 +345,7 @@ lastfm::Track LastFMService::TrackFromSong(const Song& song) const {
 
   Song corrected_song = song;
 
-  QRegExp rx("(.*)\\s+\\*\\s+anima\\.sknt\\.ru");
+  QRegExp rx("(.*)\\s+[\\*-]\\s+anima\\.sknt\\.ru");
   if (rx.indexIn(song.title()) != -1) {
     corrected_song.set_title(rx.cap(1));
   }
